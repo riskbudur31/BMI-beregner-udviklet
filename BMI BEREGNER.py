@@ -9,13 +9,16 @@ navn = input('Hvad hedder du?: ')
 print('Hej', navn + ', lad os beregne dit BMI.')
 
 # Spørger om vægt og højde for at beregne BMI
-try:
-    højde_i_cm = float(input('Hvor høj er du (i cm)?: '))
-    vægt_i_kg = float(input('Hvor meget vejer du (i kg)?: '))
-    bmi = vægt_i_kg / ((højde_i_cm / 100) ** 2)
-    print("Dit BMI er: ", bmi)
-except:
-    print("Du indtastede ikke en gyldig værdi. Prøv igen.")
+while True:
+    try:
+        højde_i_cm = float(input('Hvor høj er du (i cm)?: '))
+        vægt_i_kg = float(input('Hvor meget vejer du (i kg)?: '))
+        bmi = vægt_i_kg / ((højde_i_cm / 100) ** 2)
+        print("Dit BMI er: ", bmi)
+        break
+        # Tjekker hvis inputten er gyldig
+    except ValueError:
+        print("Du indtastede ikke en gyldig værdi. Prøv igen.")
 
 # Udfra BMI-værdi, fortæller programmet om vægtstatus
 if bmi <= 18.5:
